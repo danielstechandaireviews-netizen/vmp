@@ -24,9 +24,11 @@ export function Logo({ tag = "Creator Services", dark = false }: { tag?: string;
   );
 }
 
+// `wide` links are hidden on narrow phones so the header fits.
 const NAV = [
-  { href: PACKAGES_URL, label: "Price" },
-  { href: "/blog", label: "Blog" },
+  { href: "/courses", label: "Courses", wide: false },
+  { href: PACKAGES_URL, label: "Price", wide: true },
+  { href: "/blog", label: "Blog", wide: true },
 ];
 
 export function SiteHeader() {
@@ -40,7 +42,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-bold text-grey no-underline hover:text-ink max-[480px]:[&:nth-child(2)]:hidden"
+              className={`text-sm font-bold text-grey no-underline hover:text-ink ${item.wide ? "max-[480px]:hidden" : ""}`}
             >
               {item.label}
             </Link>
@@ -59,6 +61,7 @@ export function SiteFooter() {
           <Logo dark />
           <div className="flex flex-wrap gap-5 text-[13.5px] font-semibold">
             <Link href="/tools" className="text-[#c9c9cf] no-underline hover:text-yellow">Free Tools</Link>
+            <Link href="/courses" className="text-[#c9c9cf] no-underline hover:text-yellow">Courses</Link>
             <Link href={PACKAGES_URL} className="text-[#c9c9cf] no-underline hover:text-yellow">Price</Link>
             <Link href="/blog" className="text-[#c9c9cf] no-underline hover:text-yellow">Blog</Link>
             <a href="/partners.html" className="text-[#c9c9cf] no-underline hover:text-yellow">Partners</a>
