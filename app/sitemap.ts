@@ -4,6 +4,8 @@ import { getAllCourses } from "@/lib/courses";
 import { SITE_URL } from "@/lib/packages";
 import { TOOLS } from "@/lib/tools";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${SITE_URL}/`, priority: 1 },
@@ -13,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...getAllCourses().map((c) => ({ url: `${SITE_URL}/courses/${c.slug}`, priority: 0.8 })),
     { url: `${SITE_URL}/blog`, priority: 0.8 },
     ...getAllPosts().map((p) => ({ url: `${SITE_URL}/blog/${p.slug}`, lastModified: p.date, priority: 0.7 })),
-    { url: `${SITE_URL}/partners.html`, priority: 0.4 },
+    { url: `${SITE_URL}/partners`, priority: 0.4 },
     { url: `${SITE_URL}/privacy`, priority: 0.2 },
   ];
 }

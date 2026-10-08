@@ -64,7 +64,7 @@ export function SiteFooter() {
             <Link href="/courses" className="text-[#c9c9cf] no-underline hover:text-yellow">Courses</Link>
             <Link href={PACKAGES_URL} className="text-[#c9c9cf] no-underline hover:text-yellow">Price</Link>
             <Link href="/blog" className="text-[#c9c9cf] no-underline hover:text-yellow">Blog</Link>
-            <a href="/partners.html" className="text-[#c9c9cf] no-underline hover:text-yellow">Partners</a>
+            <a href="/partners" className="text-[#c9c9cf] no-underline hover:text-yellow">Partners</a>
             <Link href="/privacy" className="text-[#c9c9cf] no-underline hover:text-yellow">Privacy Policy</Link>
           </div>
         </div>

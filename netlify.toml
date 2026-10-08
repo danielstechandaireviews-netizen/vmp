@@ -1,16 +1,13 @@
+# Legacy host. The site is a static export (out/); the live host is Cloudflare
+# Pages (see functions/ for its /api/contact). Kept working as a fallback.
 [build]
   command = "npm run build"
-  publish = ".next"
+  publish = "out"
   functions = "netlify/functions"
 
 [build.environment]
   # Next.js 16 needs Node 20.9+.
   NODE_VERSION = "22"
-
-# The Netlify Next.js adapter serves the Next.js build (pages, rewrites,
-# static files from public/). Without it the .next folder is served raw.
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
 
 [functions]
   node_bundler = "esbuild"
