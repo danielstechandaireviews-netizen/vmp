@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SocialLinks } from "@/components/SocialLinks";
 import { ToolsMenu } from "@/components/ToolsMenu";
 import { PACKAGES_URL } from "@/lib/packages";
 
@@ -67,6 +68,9 @@ export function SiteFooter() {
             <a href="/partners" className="text-[#c9c9cf] no-underline hover:text-yellow">Partners</a>
             <Link href="/privacy" className="text-[#c9c9cf] no-underline hover:text-yellow">Privacy Policy</Link>
           </div>
+        </div>
+        <div className="mb-6">
+          <SocialLinks />
         </div>
         <p className="m-0 max-w-[80ch] text-xs leading-relaxed text-[#8a8a92]">
           © {new Date().getFullYear()} ViralMoniPoint. Prices in USD. Monetization eligibility and approval are set by
