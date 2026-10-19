@@ -40,12 +40,19 @@
 </head>
 <body>
 
-<div class="deadline-bar">
-  <a href="#why-now">
-    <span class="pill">Feb 1, 2027</span>
-    <span>YouTube doubles the watch-hour requirement to <b>8,000</b>.</span>
-    <span class="go">Get monetized under today's rules →</span>
-  </a>
+<div class="promo-bar" aria-label="Announcements">
+  <div class="promo-track">
+    <div class="promo-group">
+      <a href="https://wa.me/2348037723164?text=Hi%20Daniel%2C%20I%27m%20a%20creator%20in%20%5Byour%20country%5D%20and%20I%27d%20like%20to%20claim%20the%2050%25%20hardship%20discount%20on%20ViralMoniPoint." target="_blank" rel="noopener" data-promo="hardship"><span class="pill pill-y">50% OFF</span> For creators in <b>Nigeria, Pakistan</b> &amp; other countries facing economic hardship. <span class="go">Claim on WhatsApp →</span></a>
+      <a href="/courses" data-promo="bf"><span class="pill">BLACK FRIDAY</span> <b>30% off</b> every course &amp; service with code <b>BLACKFRIDAY30</b>. <span class="go">Shop the sale →</span></a>
+      <a href="#why-now"><span class="pill">FEB 1, 2027</span> YouTube doubles the watch-hour requirement to <b>8,000</b>. <span class="go">Get monetized under today's rules →</span></a>
+    </div>
+    <div class="promo-group" aria-hidden="true">
+      <a tabindex="-1" href="https://wa.me/2348037723164?text=Hi%20Daniel%2C%20I%27m%20a%20creator%20in%20%5Byour%20country%5D%20and%20I%27d%20like%20to%20claim%20the%2050%25%20hardship%20discount%20on%20ViralMoniPoint." target="_blank" rel="noopener" data-promo="hardship"><span class="pill pill-y">50% OFF</span> For creators in <b>Nigeria, Pakistan</b> &amp; other countries facing economic hardship. <span class="go">Claim on WhatsApp →</span></a>
+      <a tabindex="-1" href="/courses" data-promo="bf"><span class="pill">BLACK FRIDAY</span> <b>30% off</b> every course &amp; service with code <b>BLACKFRIDAY30</b>. <span class="go">Shop the sale →</span></a>
+      <a tabindex="-1" href="#why-now"><span class="pill">FEB 1, 2027</span> YouTube doubles the watch-hour requirement to <b>8,000</b>. <span class="go">Get monetized under today's rules →</span></a>
+    </div>
+  </div>
 </div>
 <header>
   <div class="container navbar">
@@ -74,6 +81,40 @@
 </header>
 
 <main id="top">
+
+<!-- PROMO CAROUSEL -->
+  <section class="promo-carousel container" aria-roledescription="carousel" aria-label="Current offers">
+    <div class="pc-viewport">
+      <div class="pc-track">
+        <article class="pc-slide pc-bf" data-promo="bf" aria-roledescription="slide" aria-label="1 of 2">
+          <div class="pc-copy">
+            <p class="pc-kicker">Black Friday Sale · ends <span data-bf-end-text>Dec 1, 2026</span></p>
+            <h2><span class="pc-big">30% OFF</span> every course &amp; done-for-you service</h2>
+            <p class="pc-sub">Watch Hours Only, Long-Form, the Faceless Channel Blueprint and more. Enter the code at checkout.</p>
+          </div>
+          <div class="pc-actions">
+            <button type="button" class="pc-code" data-copy="BLACKFRIDAY30" aria-label="Copy code BLACKFRIDAY30"><span>BLACKFRIDAY30</span><small>Tap to copy</small></button>
+            <a class="btn btn-primary" href="/courses">Shop the sale →</a>
+          </div>
+        </article>
+        <article class="pc-slide pc-hardship" data-promo="hardship" aria-roledescription="slide" aria-label="2 of 2">
+          <div class="pc-copy">
+            <p class="pc-kicker">Creator support discount</p>
+            <h2><span class="pc-big">50% OFF</span> for creators in Nigeria, Pakistan &amp; other countries facing economic hardship</h2>
+            <p class="pc-sub">Message us with your country and channel, and we'll send you a personal 50% code for any course or service.</p>
+          </div>
+          <div class="pc-actions">
+            <a class="btn btn-ink" href="https://wa.me/2348037723164?text=Hi%20Daniel%2C%20I%27m%20a%20creator%20in%20%5Byour%20country%5D%20and%20I%27d%20like%20to%20claim%20the%2050%25%20hardship%20discount%20on%20ViralMoniPoint." target="_blank" rel="noopener">Claim on WhatsApp →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="pc-controls">
+      <button type="button" class="pc-arrow" data-dir="-1" aria-label="Previous offer">←</button>
+      <div class="pc-dots" role="tablist"></div>
+      <button type="button" class="pc-arrow" data-dir="1" aria-label="Next offer">→</button>
+    </div>
+  </section>
 
   <!-- HERO -->
   <section class="hero container">
@@ -1026,6 +1067,73 @@
       if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handle(input.value); }
     });
     input.addEventListener('input', autosize);
+  })();
+</script>
+<script>
+  // Promotions: hide the Black Friday offer after it ends, run the hero carousel,
+  // and copy coupon codes. Change BF_END to move the sale's end date.
+  (function(){
+    var BF_END = new Date('2026-12-02T00:00:00-05:00'); // end of Cyber Monday, Dec 1, 2026 (US Eastern)
+    if (Date.now() >= BF_END.getTime()) {
+      document.querySelectorAll('[data-promo="bf"]').forEach(function(el){ el.remove(); });
+    }
+
+    var root = document.querySelector('.promo-carousel');
+    if (!root) return;
+    var track = root.querySelector('.pc-track');
+    var slides = [].slice.call(root.querySelectorAll('.pc-slide'));
+    var dots = root.querySelector('.pc-dots');
+    if (!slides.length) { root.remove(); return; }
+    if (slides.length < 2) root.classList.add('single');
+
+    var i = 0, timer = null, paused = false;
+    slides.forEach(function(s, n){
+      s.setAttribute('aria-label', (n + 1) + ' of ' + slides.length);
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.setAttribute('role', 'tab');
+      d.setAttribute('aria-label', 'Show offer ' + (n + 1));
+      d.addEventListener('click', function(){ go(n); restart(); });
+      dots.appendChild(d);
+    });
+    function go(n){
+      i = (n + slides.length) % slides.length;
+      track.style.transform = 'translateX(' + (-100 * i) + '%)';
+      [].forEach.call(dots.children, function(d, k){ d.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+      slides.forEach(function(s, k){ s.setAttribute('aria-hidden', k === i ? 'false' : 'true'); s.querySelectorAll('a,button').forEach(function(el){ el.tabIndex = k === i ? 0 : -1; }); });
+    }
+    function restart(){
+      clearInterval(timer);
+      if (slides.length > 1 && !paused && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        timer = setInterval(function(){ go(i + 1); }, 6500);
+      }
+    }
+    root.querySelectorAll('.pc-arrow').forEach(function(b){
+      b.addEventListener('click', function(){ go(i + Number(b.getAttribute('data-dir'))); restart(); });
+    });
+    root.addEventListener('mouseenter', function(){ paused = true; restart(); });
+    root.addEventListener('mouseleave', function(){ paused = false; restart(); });
+    root.addEventListener('focusin', function(){ paused = true; restart(); });
+    root.addEventListener('focusout', function(){ paused = false; restart(); });
+    var x0 = null;
+    root.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, { passive: true });
+    root.addEventListener('touchend', function(e){
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) { go(i + (dx < 0 ? 1 : -1)); restart(); }
+    });
+
+    root.querySelectorAll('[data-copy]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var code = b.getAttribute('data-copy'), small = b.querySelector('small');
+        var done = function(){ small.textContent = 'Copied!'; setTimeout(function(){ small.textContent = 'Tap to copy'; }, 1600); };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code).then(done, function(){ window.prompt('Copy this code:', code); });
+        else window.prompt('Copy this code:', code);
+      });
+    });
+
+    go(0);
+    restart();
   })();
 </script>
 <script src="tools-menu.js" defer></script>
