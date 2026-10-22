@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
-import { formatNaira, KIND_LABEL, type CourseMeta } from "@/lib/courses";
+import { formatUSD, KIND_LABEL, type CourseMeta } from "@/lib/courses";
 
 export function CourseCard({ course }: { course: CourseMeta }) {
   return (
@@ -27,7 +27,7 @@ export function CourseCard({ course }: { course: CourseMeta }) {
         </h3>
         <p className="m-0 line-clamp-3 flex-1 text-[13.5px] leading-normal text-grey">{course.summary}</p>
         <div className="flex items-end justify-between gap-3 border-t border-line pt-3">
-          <span className="font-num text-[22px] font-black tracking-[-0.02em] text-ink tabular">{formatNaira(course.priceNGN)}</span>
+          <span className="font-num text-[22px] font-black tracking-[-0.02em] text-ink tabular">{formatUSD(course.priceUSD)}</span>
           <Link href={`/courses/${course.slug}`} className="text-[13px] font-extrabold text-grey no-underline hover:text-ink">
             Details
           </Link>

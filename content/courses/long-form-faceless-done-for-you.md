@@ -2,7 +2,7 @@
 title: "Long Form Monetization Faceless AI Niche Video Service (Done For You)"
 kind: service
 order: 7
-priceNGN: 560000
+priceUSD: 280
 image: /courses/long-form-faceless-done-for-you.webp
 selfany: https://viralmonipoint.selfany.com/LongFormFacelessAIVideosbyViralMoniPoint
 summary: "A full long-form channel built and run for you in a faceless AI niche, produced and optimized every month for three months."

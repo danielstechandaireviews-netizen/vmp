@@ -2,7 +2,7 @@
 title: "The Subscriber Growth Playbook — 111 Proven Strategies"
 kind: course
 order: 2
-priceNGN: 26500
+priceUSD: 20
 image: /courses/subscriber-growth-playbook.webp
 selfany: https://viralmonipoint.selfany.com/YouTubeSubscriberGrowthPlan
 summary: "Most channels don't struggle because they're not posting enough — they struggle because nobody ever broke down what actually moves the subscriber number. This does. 111 individually usable strategies, organized into 11 modules, built from research into how real, working YouTube growth educators actually teach this — not recycled generic tips."

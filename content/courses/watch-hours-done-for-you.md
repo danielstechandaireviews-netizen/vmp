@@ -2,7 +2,7 @@
 title: "Get YouTube 4k Watch Hours Only - One Time Fee Service (Done For You)"
 kind: service
 order: 6
-priceNGN: 420000
+priceUSD: 200
 image: /courses/watch-hours-done-for-you.webp
 selfany: https://viralmonipoint.selfany.com/WatchHoursOnlybyViralMoniPoint
 summary: "Fastest route to qualify before the Feb 1, 2027 change: a personalized watch-hour strategy session, a retention-focused content calendar and a written action plan."

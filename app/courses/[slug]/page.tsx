@@ -4,7 +4,7 @@ import { CourseCard } from "@/components/CourseCard";
 import { Icon } from "@/components/Icon";
 import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { toolMetadata } from "@/components/ToolLayout";
-import { formatNaira, getAllCourses, getCourse, KIND_LABEL } from "@/lib/courses";
+import { formatUSD, getAllCourses, getCourse, KIND_LABEL } from "@/lib/courses";
 import { SITE_URL } from "@/lib/packages";
 
 export const dynamicParams = false;
@@ -32,7 +32,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
     description: course.summary,
     image: `${SITE_URL}${course.image}`,
     provider: { "@type": "Organization", name: "ViralMoniPoint", url: SITE_URL },
-    offers: { "@type": "Offer", price: course.priceNGN, priceCurrency: "NGN", url: course.selfany, availability: "https://schema.org/InStock" },
+    offers: { "@type": "Offer", price: course.priceUSD, priceCurrency: "USD", url: course.selfany, availability: "https://schema.org/InStock" },
   };
 
   const BuyButton = ({ full = false }: { full?: boolean }) => (
@@ -73,8 +73,8 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
 
           <aside className="relative overflow-hidden rounded-card bg-ink p-6 text-white after:absolute after:inset-x-0 after:bottom-0 after:h-1.5 after:bg-yellow lg:sticky lg:top-24">
             <p className="m-0 font-display text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#9a9aa2]">Price</p>
-            <p className="mb-1 mt-1 font-num text-[40px] font-black leading-none tracking-[-0.03em] text-yellow tabular">{formatNaira(course.priceNGN)}</p>
-            <p className="mb-5 text-[13px] text-[#9a9aa2]">Choose your currency at checkout</p>
+            <p className="mb-1 mt-1 font-num text-[40px] font-black leading-none tracking-[-0.03em] text-yellow tabular">{formatUSD(course.priceUSD)}</p>
+            <p className="mb-5 text-[13px] text-[#9a9aa2]">Pay in USD or your local currency at checkout</p>
             <BuyButton full />
             <ul className="mb-1 mt-5 flex list-none flex-col gap-2.5 p-0 text-[13.5px] text-[#ececf0]">
               <li className="flex gap-2"><span className="text-yellow">✓</span> Secure checkout on our Selfany store</li>

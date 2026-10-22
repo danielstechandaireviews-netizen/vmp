@@ -2,7 +2,7 @@
 title: "From Viral to Paid: Build AI Automations That Handle the Rush. Quit Manual Intervention and Automate any Operational Process Easily"
 kind: course
 order: 4
-priceNGN: 135000
+priceUSD: 100
 image: /courses/viral-to-paid-ai-automation.webp
 selfany: https://viralmonipoint.selfany.com/ViralToPaidAutomation
 summary: "Going viral is the easy part. Handling what comes next is where most people lose the money."

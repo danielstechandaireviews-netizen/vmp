@@ -2,7 +2,7 @@
 title: "The Faceless Channel Blueprint — 14 Lessons to Monetization"
 kind: course
 order: 1
-priceNGN: 135000
+priceUSD: 100
 image: /courses/faceless-channel-blueprint.webp
 selfany: https://viralmonipoint.selfany.com/FacelessMonetizationbyViralMoniPoint
 summary: "Most \"how to start a YouTube channel\" advice stops at vague tips. This doesn't. It's 14 structured, lesson-by-lesson modules that take you from a blank channel to one built specifically to qualify for YouTube monetization — without ever showing your face."

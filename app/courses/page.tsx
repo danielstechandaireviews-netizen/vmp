@@ -49,8 +49,7 @@ export default function CoursesPage() {
       )}
 
       <p className="m-0 rounded-2xl bg-paper-2 p-5 text-sm leading-relaxed text-grey">
-        Prices are listed in Naira (₦), as on our store. You can choose your currency and pay with 100+ payment methods at
-        checkout on{" "}
+        Prices are in USD. At checkout you can pay in your local currency with 100+ payment methods on{" "}
         <a href={STORE_URL} target="_blank" rel="noopener" className="font-bold text-ink underline decoration-yellow-deep decoration-2 underline-offset-4">
           viralmonipoint.selfany.com
         </a>

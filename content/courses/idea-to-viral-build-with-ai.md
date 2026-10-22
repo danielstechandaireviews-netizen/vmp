@@ -2,7 +2,7 @@
 title: "From Idea to Viral: Build Websites, Web Apps, Mobile Apps & Software with AI in Days Not Months (Video Explanation)"
 kind: course
 order: 5
-priceNGN: 135000
+priceUSD: 100
 image: /courses/idea-to-viral-build-with-ai.webp
 selfany: https://viralmonipoint.selfany.com/IdeaToViralApp
 summary: "Your idea isn't going viral because nobody can use it yet."

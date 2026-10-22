@@ -324,6 +324,17 @@
   .card h3{font-family:'Montserrat';font-weight:800;font-size:21px;line-height:1.2;letter-spacing:-0.01em;margin:0;color:var(--ink);}
   .price-row{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
   .price{font-weight:900;font-size:42px;letter-spacing:-0.03em;line-height:1;color:var(--ink);}
+  .was{display:inline-flex;align-items:center;gap:6px;margin-left:auto;}
+  .was s{font-size:14px;font-weight:700;color:var(--grey-dim);text-decoration-color:var(--red);text-decoration-thickness:2px;}
+  .was b{background:var(--red);color:#fff;font-family:'Montserrat';font-size:10.5px;font-weight:800;letter-spacing:0.04em;padding:3px 7px;border-radius:6px;}
+  .card.featured .was s{color:#9a9aa2;}
+  .tier-list{display:flex;flex-direction:column;border:1px solid var(--line-strong);border-radius:14px;overflow:hidden;}
+  .tier{display:flex;align-items:center;gap:10px;padding:10px 12px;flex-wrap:wrap;}
+  .tier + .tier{border-top:1px solid var(--line);}
+  .tier-tag{background:var(--yellow);color:var(--ink);font-family:'Montserrat';font-weight:900;font-size:15px;border-radius:8px;padding:4px 8px;}
+  .tier-label{font-size:12.5px;font-weight:700;color:var(--grey);}
+  .tier .price{font-size:30px;}
+  .price-note a{color:var(--ink);font-weight:700;}
   .price-unit{font-size:14px;font-weight:600;color:var(--grey);}
   .price-note{font-size:12.5px;color:var(--grey-dim);margin:-8px 0 0;}
   .desc{font-size:14.5px;line-height:1.6;color:var(--grey);margin:0;}

@@ -2,7 +2,7 @@
 title: "Watch It Happen: The Real Way Subscribers Come In — Recorded Live, Not Theory"
 kind: course
 order: 3
-priceNGN: 135000
+priceUSD: 100
 image: /courses/subscribers-recorded-live.webp
 selfany: https://viralmonipoint.selfany.com/YouTubeSubscriberVideo
 summary: "Most subscriber advice is someone describing what they think worked. This is a screen recording of it happening."
