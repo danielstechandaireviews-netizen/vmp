@@ -215,6 +215,12 @@
   .pc-code span{font-weight:900;font-size:18px;letter-spacing:0.08em;}
   .pc-code small{font-family:'Manrope';font-size:11px;font-weight:700;color:#c9c9cf;}
   .pc-code:hover{background:rgba(255,196,0,.08);}
+  .pc-deals{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:#c9c9cf;}
+  .pc-deals b{color:#fff;}
+  .pc-deals span{font-family:'Montserrat';font-weight:900;font-size:17px;color:var(--yellow);margin-left:4px;}
+  .pc-deals s{font-size:12.5px;color:#86868d;text-decoration-color:var(--red);margin-left:2px;}
+  .pc-ghost{background:transparent;color:#fff;border-color:#3a3a40;}
+  .pc-ghost:hover{border-color:#fff;}
   .btn-ink{background:var(--ink);color:var(--yellow);}
   .btn-ink:hover{background:#26262b;}
   .pc-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:12px;}
