@@ -11,7 +11,7 @@ summary: "A full long-form channel built and run for you in a faceless AI niche,
 A full long-form channel built and run for you in a faceless AI niche, produced and optimized every month for three months.
 
 - Niche research & channel setup
-- 3 long-form videos per week
+- 2 long-form videos per week
 - Daily 1-minute Short, Monday–Saturday
 - Full content creation, editing & posting handled for you
 - Ongoing channel strategy & management toward YPP eligibility

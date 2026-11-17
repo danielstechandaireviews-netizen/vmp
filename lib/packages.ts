@@ -21,7 +21,7 @@ export const PACKAGES: Record<PackageKey, Package> = {
     price: "$280",
     priceNote: "full 3-month plan · was $400",
     pitch:
-      "We build and run a faceless long-form channel for you: niche research, 3 videos a week, a daily Short, editing, posting and monthly reports, backed by our Work-Until-Eligible commitment.",
+      "We build and run a faceless long-form channel for you: niche research, 2 videos a week, a daily Short, editing, posting and monthly reports, backed by our Work-Until-Eligible commitment.",
   },
   shorts: {
     name: "Shorts Monetization — Faceless AI Niche",
