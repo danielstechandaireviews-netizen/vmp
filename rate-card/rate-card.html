@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ViralMoniPoint Rate Card</title>
+<!-- Source for public/rate-card.pdf. Rebuild with rate-card/build.sh after editing. -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root{
+    --ink:#0b0b0c; --ink-2:#17171a; --ink-3:#26262b; --grey:#5c5c63; --grey-dim:#86868d;
+    --line:#e6e4dd; --paper-2:#f7f6f2; --yellow:#FFC400; --yellow-soft:#FFF4CC; --red:#E4161B; --green:#0b8a4f;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{width:210mm;height:297mm;overflow:hidden;font-family:'Manrope',sans-serif;color:var(--ink);font-size:9pt;line-height:1.4;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;background:#fff;display:flex;flex-direction:column;}
+  h1,h2,h3{font-family:'Montserrat',sans-serif;margin:0;letter-spacing:-0.01em;}
+
+  /* Header */
+  .top{background:var(--ink);color:#fff;padding:7mm 12mm 6mm;position:relative;}
+  .top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2mm;background:var(--yellow);}
+  .brand{display:flex;align-items:center;gap:3mm;}
+  .brand svg{width:11mm;height:11mm;}
+  .brand .name{font-family:'Montserrat';font-weight:900;font-size:16pt;line-height:1;}
+  .brand .tag{font-size:6.5pt;letter-spacing:.28em;text-transform:uppercase;color:#9a9aa2;font-weight:700;margin-top:1mm;}
+  .top-row{display:flex;justify-content:space-between;align-items:flex-start;}
+  .title{text-align:right;}
+  .title h1{font-size:22pt;font-weight:900;line-height:1;color:var(--yellow);}
+  .title p{margin:1.5mm 0 0;color:#c9c9cf;font-size:8pt;}
+  .contact{display:flex;gap:6mm;margin-top:3.5mm;font-size:8pt;color:#ececf0;font-weight:600;}
+  .contact b{color:var(--yellow);font-weight:800;margin-right:1mm;}
+
+  main{flex:1;padding:5mm 12mm 0;display:flex;flex-direction:column;gap:4mm;}
+  .sec-head{display:flex;align-items:baseline;gap:3mm;margin-bottom:2mm;}
+  .sec-head .n{font-family:'Montserrat';font-weight:900;font-size:8pt;background:var(--yellow);border-radius:99px;padding:.6mm 2.4mm;}
+  .sec-head h2{font-size:12.5pt;font-weight:900;}
+  .sec-head p{margin:0 0 0 auto;font-size:7.5pt;color:var(--grey);}
+
+  /* Sale banner */
+  .sale-note .pill{background:var(--red);color:#fff;font-family:'Montserrat';font-weight:800;font-size:6.3pt;letter-spacing:.06em;padding:.5mm 1.6mm;border-radius:1.2mm;margin-right:1mm;}
+  .sale-note b{color:var(--ink);}
+  .sale{display:flex;align-items:center;gap:3mm;background:var(--yellow-soft);border:0.3mm solid #f2d97a;border-radius:3mm;padding:2.2mm 3.5mm;font-size:8pt;}
+  .sale .pill{background:var(--red);color:#fff;font-family:'Montserrat';font-weight:800;font-size:6.8pt;letter-spacing:.06em;padding:.8mm 2mm;border-radius:1.5mm;white-space:nowrap;}
+
+  /* Packages table */
+  table{width:100%;border-collapse:separate;border-spacing:0;border:0.3mm solid #d4d1c7;border-radius:3mm;overflow:hidden;}
+  th{background:var(--ink);color:#fff;text-align:left;font-size:7pt;letter-spacing:.08em;text-transform:uppercase;font-weight:800;padding:2mm 3mm;}
+  th.r, td.r{text-align:right;}
+  td{padding:2mm 3mm;vertical-align:top;border-top:0.3mm solid var(--line);}
+  tr:first-child td{border-top:0;}
+  td.svc{width:25%;}
+  td.svc strong{display:block;font-family:'Montserrat';font-weight:800;font-size:9.5pt;line-height:1.2;}
+  td.svc span{display:block;color:var(--grey);font-size:7.3pt;margin-top:.8mm;}
+  td.inc{color:var(--ink-3);font-size:7.6pt;}
+  td.inc ul{margin:0;padding-left:3.5mm;}
+  td.price{white-space:nowrap;width:15%;}
+  .reg{font-family:'Montserrat';font-weight:800;font-size:11pt;}
+  .unit{display:block;font-size:6.8pt;color:var(--grey);font-weight:600;}
+  .bf{font-family:'Montserrat';font-weight:900;font-size:13pt;color:var(--ink);background:var(--yellow);border-radius:1.5mm;padding:0 1.6mm;}
+  .off{display:block;margin-top:1mm;font-size:6.8pt;font-weight:800;color:var(--red);}
+  .muted{color:var(--grey-dim);font-weight:700;font-size:8pt;}
+  .tier{display:flex;justify-content:flex-end;align-items:baseline;gap:1.5mm;}
+  .tier + .tier{margin-top:1.2mm;}
+  .tier i{font-style:normal;font-size:6.8pt;font-weight:800;background:var(--ink);color:var(--yellow);border-radius:1mm;padding:.2mm 1.2mm;}
+
+  /* Grids */
+  .grid{display:grid;gap:2.5mm;}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  .box{border:0.3mm solid #d4d1c7;border-radius:3mm;padding:2.2mm 3mm;}
+  .box h3{font-size:8.8pt;font-weight:800;line-height:1.2;}
+  .box p{margin:.8mm 0 0;font-size:7.2pt;color:var(--grey);line-height:1.35;}
+  .quote{display:inline-block;margin-top:1.4mm;font-size:6.8pt;font-weight:800;border-bottom:0.5mm solid var(--yellow);}
+
+  .growth{background:var(--ink);border-radius:3mm;padding:3mm 3.5mm;color:#fff;}
+  .growth .box{background:var(--ink-2);border-color:var(--ink-3);}
+  .growth .box h3{color:#fff;}
+  .growth .box p{color:#c9c9cf;}
+  .growth .quote{color:#fff;}
+  .growth .sec-head h2{color:#fff;}
+  .growth .sec-head p{color:#c9c9cf;}
+
+  .two{display:grid;grid-template-columns:1.15fr 1fr;gap:5mm;}
+  .list{border:0.3mm solid #d4d1c7;border-radius:3mm;overflow:hidden;}
+  .list div{display:flex;justify-content:space-between;gap:3mm;padding:1.35mm 3mm;font-size:7.6pt;border-top:0.3mm solid var(--line);}
+  .list div:first-child{border-top:0;}
+  .list b{font-family:'Montserrat';font-weight:800;white-space:nowrap;}
+  .perks{background:var(--paper-2);border:0.3mm solid var(--line);border-radius:3mm;padding:2.4mm 3mm;font-size:7.3pt;}
+  .perks ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:1.2mm;}
+  .perks li{display:flex;gap:2mm;}
+  .perks li::before{content:"";flex:none;width:2.2mm;height:2.2mm;margin-top:.9mm;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 .4mm var(--ink);}
+  .perks strong{font-weight:800;}
+
+  footer{margin-top:auto;padding:3mm 12mm 5mm;font-size:6.6pt;color:var(--grey-dim);line-height:1.45;border-top:0.3mm solid var(--line);}
+  footer b{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-row">
+    <div class="brand">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#FFC400"/><g transform="translate(1 2) scale(0.92)"><path d="M7.5 15H16L20 25L28.5 5H38L24.5 35H15.5Z" fill="#0b0b0c"/><path d="M4.5 2.5V14.5L14.5 8.5Z" fill="#E4161B"/></g></svg>
+      <div><div class="name">ViralMoniPoint</div><div class="tag">Creator Services</div></div>
+    </div>
+    <div class="title">
+      <h1>Rate Card</h1>
+      <p>YouTube monetization, video production &amp; growth · Prices in USD · Nov 2026</p>
+    </div>
+  </div>
+  <div class="contact">
+    <span><b>Web</b>viralmonipoint.com</span>
+    <span><b>WhatsApp</b>+234 803 772 3164</span>
+    <span><b>Store</b>viralmonipoint.selfany.com</span>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="sec-head"><span class="n">01</span><h2>Monetization Packages</h2><p class="sale-note"><span class="pill">BLACK FRIDAY</span> Sale prices valid until <b>Dec 1, 2026</b>, then regular prices apply</p></div>
+    <table>
+      <thead><tr><th>Package</th><th>What's included</th><th class="r">Regular</th><th class="r">Black Friday</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="svc"><strong>Watch Hours Only</strong><span>1-month plan · one-time fee</span></td>
+          <td class="inc"><ul><li>Personalized watch-hour strategy session</li><li>Retention-focused content calendar</li><li>Written action plan + free Shorts tutorial series</li></ul></td>
+          <td class="price r">
+            <div class="tier"><i>4K</i><span class="reg">$300</span></div>
+            <div class="tier"><i>8K</i><span class="reg">$500</span></div>
+          </td>
+          <td class="price r">
+            <div class="tier"><span class="bf">$200</span></div><span class="off">33% OFF</span>
+            <div class="tier"><span class="bf">$300</span></div><span class="off">40% OFF</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="svc"><strong>Long-Form Monetization</strong><span>Faceless AI niche · done for you · 3 months</span></td>
+          <td class="inc"><ul><li>Niche research &amp; channel setup</li><li>2 long-form videos per week + a daily 1-minute Short (Mon–Sat)</li><li>Creation, editing, posting, strategy &amp; monthly report · Work-Until-Eligible commitment</li></ul></td>
+          <td class="price r"><span class="reg">$350</span><span class="unit">for 3 months</span></td>
+          <td class="price r"><span class="bf">$280</span><span class="off">20% OFF</span></td>
+        </tr>
+        <tr>
+          <td class="svc"><strong>Shorts Monetization</strong><span>Faceless AI niche · AI automation · 3 months</span></td>
+          <td class="inc"><ul><li>Niche selection &amp; channel setup</li><li>AI system: script, voice &amp; edit templates</li><li>First batch produced &amp; scheduled + hand-off guide</li></ul></td>
+          <td class="price r"><span class="reg">$1,100</span><span class="unit">one-time</span></td>
+          <td class="price r"><span class="muted">No change</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">02</span><h2>Video Production Services</h2><p>Scripted, voiced &amp; produced for you, managed through to monetization</p></div>
+    <div class="grid g3">
+      <div class="box"><h3>AI Story Videos</h3><p>Narrated stories with AI-generated scenes: history, mystery, motivation, Bible &amp; folk tales.</p><span class="quote">Custom quote</span></div>
+      <div class="box"><h3>AI Avatar Influencer Videos</h3><p>A consistent AI presenter on camera, so your channel has a face without you.</p><span class="quote">Custom quote</span></div>
+      <div class="box"><h3>Whiteboard Videos</h3><p>Hand-drawn animation for finance, business, science, self-help &amp; book summaries.</p><span class="quote">Custom quote</span></div>
+      <div class="box"><h3>Faceless Documentaries</h3><p>Researched, voiced documentaries with licensed footage, maps &amp; motion graphics.</p><span class="quote">Custom quote</span></div>
+      <div class="box"><h3>2D Animated Explainers</h3><p>Character &amp; motion-graphic animation for explainers, brands and Shorts.</p><span class="quote">Custom quote</span></div>
+      <div class="box"><h3>Shorts &amp; Clips Repurposing</h3><p>Your long videos cut into captioned vertical Shorts that drive viewers back.</p><span class="quote">Custom quote</span></div>
+    </div>
+  </section>
+
+  <section class="growth">
+    <div class="sec-head"><span class="n">03</span><h2>Growth Services</h2><p>Real viewers only. No bots, view farms or sub4sub</p></div>
+    <div class="grid g3">
+      <div class="box"><h3>Get Subscribers</h3><p>Channel packaging, subscribe prompts &amp; targeted promotion toward 1,000 subs.</p><span class="quote">Custom quote</span></div>
+      <div class="box"><h3>Boost Views</h3><p>Title, thumbnail &amp; SEO fixes plus promotion of your best-retaining videos.</p><span class="quote">Custom quote</span></div>
+      <div class="box"><h3>Get Likes &amp; Comments</h3><p>Hooks, pinned questions &amp; community posts that start real conversations.</p><span class="quote">Custom quote</span></div>
+    </div>
+  </section>
+
+  <section class="two">
+    <div>
+      <div class="sec-head"><span class="n">04</span><h2>Courses &amp; Guides</h2></div>
+      <div class="list">
+        <div><span>The Faceless Channel Blueprint: 14 lessons to monetization</span><b>$100</b></div>
+        <div><span>Watch It Happen: how subscribers come in, recorded live</span><b>$100</b></div>
+        <div><span>The Subscriber Growth Playbook: 111 strategies</span><b>$20</b></div>
+        <div><span>From Idea to Viral: build apps &amp; software with AI</span><b>$100</b></div>
+        <div><span>From Viral to Paid: build AI automations</span><b>$100</b></div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-head"><span class="n">05</span><h2>Good to Know</h2></div>
+      <div class="perks">
+        <ul>
+          <li><span><strong>50% off</strong> any course or service for creators in Nigeria, Pakistan &amp; other countries facing hardship. Ask on WhatsApp.</span></li>
+          <li><span><strong>Free 15-minute discovery call</strong> before every package. You always keep full channel ownership.</span></li>
+          <li><span><strong>Feb 1, 2027:</strong> new applicants need 8,000 watch hours or 20M Shorts views. Apply before the end of December.</span></li>
+          
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <b>Terms.</b> All prices in USD. Custom quotes depend on video length, posting frequency and niche. No bots, purchased views, watch hours or subscribers are ever used. Monetization eligibility and approval are determined by YouTube and are not guaranteed; our Work-Until-Eligible commitment on Long-Form Monetization covers eligibility, provided approvals, feedback and access are given on time. ViralMoniPoint is an independent creator service, not affiliated with, endorsed by, or sponsored by YouTube or Google.
+</footer>
+
+</body>
+</html>

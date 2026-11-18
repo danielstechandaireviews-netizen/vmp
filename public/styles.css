@@ -664,3 +664,8 @@
   .g-item .svc-cta{color:#fff;}
   .g-item .svc-cta:hover{border-bottom-color:#fff;}
   @media (max-width:640px){.growth{padding:28px 20px 34px;}}
+
+  /* Rate card download link */
+  .rate-dl{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-weight:800;font-size:14.5px;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--yellow);padding-bottom:2px;}
+  .rate-dl:hover{border-bottom-color:var(--ink);}
+  .rate-dl svg{width:17px;height:17px;stroke:currentColor;}
