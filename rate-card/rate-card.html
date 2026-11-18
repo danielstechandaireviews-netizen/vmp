@@ -40,6 +40,13 @@
   /* Sale banner */
   .sale-note .pill{background:var(--red);color:#fff;font-family:'Montserrat';font-weight:800;font-size:6.3pt;letter-spacing:.06em;padding:.5mm 1.6mm;border-radius:1.2mm;margin-right:1mm;}
   .sale-note b{color:var(--ink);}
+  /* Standard version (rate-card.html?standard): no Black Friday column or note. */
+  .std-only{display:none;}
+  body.standard .std-only{display:inline;}
+  body.standard p.std-only{display:block;}
+  body.standard .bfc{display:none;}
+  body.standard td.svc{width:27%;}
+  body.standard td.price{width:16%;}
   .sale{display:flex;align-items:center;gap:3mm;background:var(--yellow-soft);border:0.3mm solid #f2d97a;border-radius:3mm;padding:2.2mm 3.5mm;font-size:8pt;}
   .sale .pill{background:var(--red);color:#fff;font-family:'Montserrat';font-weight:800;font-size:6.8pt;letter-spacing:.06em;padding:.8mm 2mm;border-radius:1.5mm;white-space:nowrap;}
 
@@ -96,6 +103,7 @@
 </style>
 </head>
 <body>
+<script>if (/standard/.test(location.search)) document.body.classList.add('standard');</script>
 
 <header class="top">
   <div class="top-row">
@@ -117,9 +125,9 @@
 
 <main>
   <section>
-    <div class="sec-head"><span class="n">01</span><h2>Monetization Packages</h2><p class="sale-note"><span class="pill">BLACK FRIDAY</span> Sale prices valid until <b>Dec 1, 2026</b>, then regular prices apply</p></div>
+    <div class="sec-head"><span class="n">01</span><h2>Monetization Packages</h2><p class="std-only">Built around YouTube Partner Program eligibility</p><p class="sale-note bfc"><span class="pill">BLACK FRIDAY</span> Sale prices valid until <b>Dec 1, 2026</b>, then regular prices apply</p></div>
     <table>
-      <thead><tr><th>Package</th><th>What's included</th><th class="r">Regular</th><th class="r">Black Friday</th></tr></thead>
+      <thead><tr><th>Package</th><th>What's included</th><th class="r"><span class="bfc">Regular</span><span class="std-only">Price</span></th><th class="r bfc">Black Friday</th></tr></thead>
       <tbody>
         <tr>
           <td class="svc"><strong>Watch Hours Only</strong><span>1-month plan · one-time fee</span></td>
@@ -128,7 +136,7 @@
             <div class="tier"><i>4K</i><span class="reg">$300</span></div>
             <div class="tier"><i>8K</i><span class="reg">$500</span></div>
           </td>
-          <td class="price r">
+          <td class="price r bfc">
             <div class="tier"><span class="bf">$200</span></div><span class="off">33% OFF</span>
             <div class="tier"><span class="bf">$300</span></div><span class="off">40% OFF</span>
           </td>
@@ -137,13 +145,13 @@
           <td class="svc"><strong>Long-Form Monetization</strong><span>Faceless AI niche · done for you · 3 months</span></td>
           <td class="inc"><ul><li>Niche research &amp; channel setup</li><li>2 long-form videos per week + a daily 1-minute Short (Mon–Sat)</li><li>Creation, editing, posting, strategy &amp; monthly report · Work-Until-Eligible commitment</li></ul></td>
           <td class="price r"><span class="reg">$350</span><span class="unit">for 3 months</span></td>
-          <td class="price r"><span class="bf">$280</span><span class="off">20% OFF</span></td>
+          <td class="price r bfc"><span class="bf">$280</span><span class="off">20% OFF</span></td>
         </tr>
         <tr>
           <td class="svc"><strong>Shorts Monetization</strong><span>Faceless AI niche · AI automation · 3 months</span></td>
           <td class="inc"><ul><li>Niche selection &amp; channel setup</li><li>AI system: script, voice &amp; edit templates</li><li>First batch produced &amp; scheduled + hand-off guide</li></ul></td>
           <td class="price r"><span class="reg">$1,100</span><span class="unit">one-time</span></td>
-          <td class="price r"><span class="muted">No change</span></td>
+          <td class="price r bfc"><span class="muted">No change</span></td>
         </tr>
       </tbody>
     </table>
