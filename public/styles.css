@@ -669,3 +669,30 @@
   .rate-dl{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-weight:800;font-size:14.5px;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--yellow);padding-bottom:2px;}
   .rate-dl:hover{border-bottom-color:var(--ink);}
   .rate-dl svg{width:17px;height:17px;stroke:currentColor;}
+
+  /* ---------- AI tools band ---------- */
+  .tools-band{padding-block:34px 30px;border-top:1px solid var(--line);}
+  .tools-title{margin:0 0 20px;text-align:center;font-family:'Montserrat';font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);}
+  .tools-row{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
+  .tool{display:flex;}
+  .tool, .tool-link{align-items:center;gap:11px;padding:9px 16px 9px 9px;border:1px solid var(--line);border-radius:14px;background:var(--paper);transition:border-color .15s ease, transform .15s ease;}
+  .tool:has(.tool-link){padding:0;border:0;background:none;}
+  .tool-link{display:flex;text-decoration:none;color:inherit;border-color:var(--yellow);}
+  .tool:hover, .tool-link:hover{border-color:var(--ink);transform:translateY(-2px);}
+  .tool:has(.tool-link):hover{transform:none;}
+  .tool-ico{width:40px;height:40px;border-radius:11px;flex:none;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .tool-ico img{display:block;}
+  .tool-ico.app img{width:40px;height:40px;object-fit:cover;}
+  .tool-ico.glyph{background:var(--paper-2);border:1px solid var(--line);}
+  .tool-ico.glyph img{width:22px;height:22px;}
+  .tool-txt{display:flex;flex-direction:column;line-height:1.15;}
+  .tool-txt b{font-size:14.5px;font-weight:800;color:var(--ink);}
+  .tool-txt small{font-size:12px;font-weight:600;color:var(--grey-dim);margin-top:2px;}
+  .tools-note{margin:18px auto 0;text-align:center;font-size:11.5px;color:var(--grey-dim);max-width:70ch;}
+  @media (max-width:560px){
+    .tools-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .tool, .tool-link{padding:8px 10px 8px 8px;}
+    .tool-link{width:100%;}
+    .tool-ico{width:34px;height:34px;}
+    .tool-ico.app img{width:34px;height:34px;}
+  }
