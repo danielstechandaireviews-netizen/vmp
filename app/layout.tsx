@@ -1,18 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, Montserrat } from "next/font/google";
+import localFont from "next/font/local";
 import { SITE_URL } from "@/lib/packages";
 import "./globals.css";
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["700", "800", "900"],
+// Self-hosted (variable, latin) so builds never depend on fetching Google Fonts.
+const montserrat = localFont({
+  src: "./fonts/Montserrat-latin.woff2",
+  weight: "700 900",
   variable: "--font-montserrat",
+  display: "swap",
 });
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+const manrope = localFont({
+  src: "./fonts/Manrope-latin.woff2",
+  weight: "400 800",
   variable: "--font-manrope",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
