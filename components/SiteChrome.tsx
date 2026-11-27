@@ -29,6 +29,7 @@ export function Logo({ tag = "Creator Services", dark = false }: { tag?: string;
 const NAV = [
   { href: "/courses", label: "Courses", wide: false },
   { href: PACKAGES_URL, label: "Price", wide: true },
+  { href: "/nuggets", label: "Daily Nuggets", wide: true },
   { href: "/blog", label: "Blog", wide: true },
 ];
 
@@ -65,6 +66,7 @@ export function SiteFooter() {
             <Link href="/courses" className="text-[#c9c9cf] no-underline hover:text-yellow">Courses</Link>
             <Link href={PACKAGES_URL} className="text-[#c9c9cf] no-underline hover:text-yellow">Price</Link>
             <Link href="/blog" className="text-[#c9c9cf] no-underline hover:text-yellow">Blog</Link>
+            <Link href="/nuggets" className="text-[#c9c9cf] no-underline hover:text-yellow">Daily Nuggets</Link>
             <a href="/partners" className="text-[#c9c9cf] no-underline hover:text-yellow">Partners</a>
             <Link href="/privacy" className="text-[#c9c9cf] no-underline hover:text-yellow">Privacy Policy</Link>
           </div>

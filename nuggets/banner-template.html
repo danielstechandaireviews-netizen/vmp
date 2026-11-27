@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Daily Nugget banner</title>
+<!-- Template for the Daily Nugget images. Filled in and rendered by nuggets/render.mjs; don't open directly. -->
+<style>
+  @font-face{font-family:'Montserrat';src:url('../app/fonts/Montserrat-latin.woff2') format('woff2');font-weight:700 900;}
+  @font-face{font-family:'Manrope';src:url('../app/fonts/Manrope-latin.woff2') format('woff2');font-weight:400 800;}
+  :root{--ink:#0b0b0c;--ink-2:#151518;--ink-3:#26262b;--yellow:#FFC400;--red:#E4161B;--soft:#c9c9cf;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{width:1080px;height:1350px;overflow:hidden;background:var(--ink);}
+  body.story{height:1920px;}
+  body{font-family:'Manrope',sans-serif;color:#fff;position:relative;}
+
+  .bg{position:absolute;inset:0;overflow:hidden;}
+  .glow{position:absolute;width:1200px;height:1200px;border-radius:50%;right:-520px;top:-480px;
+    background:radial-gradient(circle,rgba(255,196,0,.26) 0%,rgba(255,196,0,.07) 40%,rgba(255,196,0,0) 68%);}
+  .glow.b{left:-600px;right:auto;top:auto;bottom:-640px;background:radial-gradient(circle,rgba(228,22,27,.20) 0%,rgba(228,22,27,0) 62%);}
+  .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:54px 54px;
+    -webkit-mask-image:radial-gradient(ellipse at 70% 20%,#000 20%,transparent 70%);}
+  .ghost{position:absolute;right:-30px;top:120px;font-family:'Montserrat';font-weight:900;font-size:620px;line-height:1;letter-spacing:-.06em;
+    color:rgba(255,196,0,.07);}
+  body.story .ghost{top:250px;font-size:760px;}
+  .stripe{position:absolute;left:0;right:0;bottom:0;height:16px;background:var(--yellow);}
+
+  .wrap{position:relative;height:100%;padding:68px 72px 76px;display:flex;flex-direction:column;}
+  body.story .wrap{padding:120px 72px 130px;}
+
+  .top{display:flex;justify-content:space-between;align-items:center;}
+  .brand{display:flex;align-items:center;gap:14px;}
+  .brand svg{width:58px;height:58px;}
+  .brand .name{font-family:'Montserrat';font-weight:900;font-size:27px;line-height:1;}
+  .brand .tag{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#9a9aa2;font-weight:700;margin-top:6px;}
+  .date{border:2px solid var(--yellow);color:var(--yellow);border-radius:999px;padding:10px 20px;font-family:'Montserrat';font-weight:800;font-size:17px;letter-spacing:.12em;}
+
+  .kicker{margin-top:70px;font-family:'Montserrat';font-weight:800;font-size:22px;letter-spacing:.24em;text-transform:uppercase;color:var(--yellow);display:flex;align-items:center;gap:14px;}
+  .kicker::before{content:"";width:46px;height:4px;background:var(--yellow);border-radius:2px;}
+  body.story .kicker{margin-top:150px;font-size:26px;}
+  h1{margin-top:18px;font-family:'Montserrat';font-weight:900;font-size:92px;line-height:.96;letter-spacing:-.04em;text-transform:uppercase;max-width:900px;}
+  body.story h1{font-size:110px;}
+  h1 .hl{color:var(--ink);background:var(--yellow);padding:2px 20px 8px;border-radius:16px;display:inline-block;transform:rotate(-2deg);margin-top:12px;}
+
+  .points{margin-top:56px;display:flex;flex-direction:column;gap:20px;}
+  body.story .points{margin-top:100px;gap:28px;}
+  .pt{display:flex;gap:28px;align-items:center;background:rgba(255,255,255,.045);border:1.5px solid rgba(255,255,255,.10);border-radius:26px;padding:26px 30px;}
+  body.story .pt{padding:36px 34px;}
+  .pt .n{flex:none;width:92px;height:92px;border-radius:22px;background:var(--yellow);color:var(--ink);display:flex;align-items:center;justify-content:center;
+    font-family:'Montserrat';font-weight:900;font-size:44px;letter-spacing:-.03em;}
+  .pt:nth-child(2) .n{background:var(--red);color:#fff;}
+  .pt:nth-child(3) .n{background:#fff;}
+  .pt h2{font-family:'Montserrat';font-weight:900;font-size:40px;letter-spacing:-.02em;text-transform:uppercase;line-height:1;}
+  .pt p{margin-top:9px;font-size:22px;line-height:1.35;color:var(--soft);font-weight:600;}
+  body.story .pt h2{font-size:46px;}
+  body.story .pt p{font-size:25px;}
+
+  .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;}
+  .foot .cta{font-size:20px;font-weight:700;color:var(--soft);line-height:1.4;}
+  .foot .cta b{display:block;font-family:'Montserrat';font-weight:900;font-size:30px;color:#fff;letter-spacing:-.01em;}
+  .foot .cta b span{color:var(--yellow);}
+  .foot .pill{flex:none;background:var(--yellow);color:var(--ink);border-radius:999px;padding:16px 26px;font-family:'Montserrat';font-weight:900;font-size:19px;letter-spacing:.08em;text-transform:uppercase;}
+</style>
+</head>
+<body class="{{MODE}}">
+  <div class="bg"><div class="glow"></div><div class="glow b"></div><div class="grid"></div><div class="ghost">{{GHOST}}</div><div class="stripe"></div></div>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#FFC400"/><g transform="translate(1 2) scale(0.92)"><path d="M7.5 15H16L20 25L28.5 5H38L24.5 35H15.5Z" fill="#0b0b0c"/><path d="M4.5 2.5V14.5L14.5 8.5Z" fill="#E4161B"/></g></svg>
+        <div><div class="name">ViralMoniPoint</div><div class="tag">Daily Nugget</div></div>
+      </div>
+      <div class="date">{{DATE}}</div>
+    </div>
+    <p class="kicker">{{KICKER}}</p>
+    <h1>{{HEADLINE}}<br><span class="hl">{{HIGHLIGHT}}</span></h1>
+    <div class="points">{{POINTS}}</div>
+    <div class="foot">
+      <div class="cta">A new YouTube nugget every day<b>viralmonipoint.com<span>/nuggets</span></b></div>
+      <div class="pill">Save &amp; share</div>
+    </div>
+  </div>
+</body>
+</html>

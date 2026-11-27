@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "serve:static": "node server.js"
+    "serve:static": "node server.js",
+    "nugget:render": "node nuggets/render.mjs",
+    "nugget:prune": "node nuggets/prune.mjs"
   },
   "dependencies": {
     "dotenv": "^16.4.5",

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
+import { getActiveNuggets } from "@/lib/nuggets";
 import { getAllCourses } from "@/lib/courses";
 import { SITE_URL } from "@/lib/packages";
 import { TOOLS } from "@/lib/tools";
@@ -13,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...TOOLS.filter((t) => t.live).map((t) => ({ url: `${SITE_URL}/tools/${t.slug}`, priority: 0.8 })),
     { url: `${SITE_URL}/courses`, priority: 0.9 },
     ...getAllCourses().map((c) => ({ url: `${SITE_URL}/courses/${c.slug}`, priority: 0.8 })),
+    { url: `${SITE_URL}/nuggets`, changeFrequency: "daily", priority: 0.8 },
+    ...getActiveNuggets().map((n) => ({ url: `${SITE_URL}/nuggets/${n.slug}`, lastModified: n.date, priority: 0.6 })),
     { url: `${SITE_URL}/blog`, priority: 0.8 },
     ...getAllPosts().map((p) => ({ url: `${SITE_URL}/blog/${p.slug}`, lastModified: p.date, priority: 0.7 })),
     { url: `${SITE_URL}/partners`, priority: 0.4 },
